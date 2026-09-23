@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0d140d">
+<title>Долина Тихого Ветра</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="scene"></canvas>
+  <div id="vignette"></div>
+
+  <!-- ══ HUD ══ -->
+  <div id="hud" class="hidden">
+    <div id="topbar">
+      <div id="player-card">
+        <div id="avatar">🧝</div>
+        <div id="p-info">
+          <div id="p-name">Странник</div>
+          <div class="bar xp"><i id="xp-fill"></i></div>
+          <div class="bar st"><i id="st-fill"></i></div>
+        </div>
+        <div id="p-level">1</div>
+      </div>
+      <div id="loc-name"></div>
+      <div id="weight">🎒 <b id="w-cur">0</b>/<span id="w-max">0</span></div>
+    </div>
+
+    <div id="hint"></div>
+
+    <div id="joy-zone">
+      <div id="joy-base"><div id="joy-knob"></div></div>
+    </div>
+
+    <div id="right-btns">
+      <button id="btn-inv" class="round-btn">🎒</button>
+      <button id="btn-run" class="round-btn">🏃</button>
+      <button id="btn-gather"><span id="gather-inner"><b id="gather-icon">🪵</b><em>Собрать</em></span></button>
+    </div>
+
+    <div id="floaters"></div>
+  </div>
+
+  <!-- ══ Инвентарь ══ -->
+  <div id="inv-modal" class="modal hidden">
+    <div class="panel">
+      <header><h2>Инвентарь</h2><button id="inv-close">✕</button></header>
+      <div id="inv-grid"></div>
+      <div class="bar weight-bar"><i id="inv-w-fill"></i></div>
+      <div id="inv-info"><p class="dim">Пусто. Соберите что-нибудь в долине.</p></div>
+    </div>
+  </div>
+
+  <!-- ══ Стартовый экран ══ -->
+  <div id="start">
+    <div class="fog f1"></div><div class="fog f2"></div>
+    <div class="flies"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div id="start-inner">
+      <div class="kicker">3D · сбор ресурсов · открытая локация</div>
+      <h1>ДОЛИНА<br>ТИХОГО ВЕТРА</h1>
+      <p class="lore">Первая локация большого мира. Рубите деревья, ломайте камень,
+      собирайте ягоды и лён — сумка не бездонна, а герой растёт с каждым трофеем.</p>
+      <div class="tags"><span>🌲 Лес</span><span>🪨 Камень</span><span>🫐 Ягоды</span><span>🌾 Волокно</span></div>
+      <div class="controls">
+        <div><b>Джойстик</b> движение</div>
+        <div><b>Свайп</b> камера</div>
+        <div><b>🏃</b> бег</div>
+        <div><b>Кнопка</b> сбор</div>
+      </div>
+      <button id="btn-play">Войти в долину</button>
+      <p class="tiny">Лучше играть в духе Альбиона: удерживайте кнопку у светящегося круга</p>
+    </div>
+  </div>
+</div>
+
+<script src="vendor/three.min.js"></script>
+<script>if(!window.THREE)document.write('<script src="https://unpkg.com/three@0.152.2/build/three.min.js"><\/script>');</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
